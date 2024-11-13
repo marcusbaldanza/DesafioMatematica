@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Matemático</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="game-container">
+        <h1>Desafio Matemático Baldanza</h1>
+        <div id="problem">Problema: </div>
+        <div id="choices"></div>
+        <div id="score">Pontos: 0</div>
+        <div id="time">Tempo: 60s</div>
+        
+        <!-- Quadrante de finalização, oculto inicialmente -->
+        <div id="game-over" class="hidden">
+            <h2>Jogo Finalizado!</h2>
+            <p>Você alcançou um total de <span id="final-score">0</span> pontos.</p>
+            <button id="restart">Jogar Novamente</button>
+        </div>
+    </div>
+    
+    
+    
+    <script src="script.js"></script>
+</body>
+</html>
+

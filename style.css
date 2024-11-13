@@ -1,0 +1,110 @@
+/* Estilos gerais do jogo */
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    color: #00ffcc;
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    margin: auto;
+    text-align: center;
+}
+
+body {
+
+    background-color: #333;
+}
+
+h1 {
+    color: #00ffcc;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#problem {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+#choices {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 300px;
+    margin: 15px auto;
+}
+
+#choices button {
+    flex: 1;  /* Para que cada botão ocupe o mesmo espaço */
+    margin: 0 5px;  /* Espaçamento entre os botões */
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #00ffcc;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+#choices button:hover {
+    background-color: #444;
+}
+
+#score, #time {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* Estilos para o quadrante de finalização do jogo */
+#game-over {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    color: #ff3f3f;
+    box-shadow: 0px 0px 15px #ff3f3f;
+    width: 300px;
+    z-index: 10;
+}
+
+#game-over h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #ff3f3f;
+}
+
+#game-over p {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #fff;
+}
+
+#restart {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #1a1a1a;
+    background-color: #00ffcc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#restart:hover {
+    background-color: #00e6b8;
+}
+
+/* Esconder o quadrante de finalização quando o jogo está ativo */
+.hidden {
+    display: none;
+}
