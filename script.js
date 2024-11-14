@@ -1,6 +1,7 @@
 const problemDiv = document.getElementById('problem');
 const choicesDiv = document.getElementById('choices');
 const scoreDiv = document.getElementById('score');
+const mistakesSpan = document.getElementById("mistakes"); // Elemento para exibir erros
 const timeDiv = document.getElementById('time');
 const gameOverDiv = document.getElementById('game-over');
 const finalScoreSpan = document.getElementById('final-score');
@@ -23,13 +24,18 @@ function generateRandomNumber(max) {
 function generateProblem() {
     if (!gameActive) return;
 
-    const operations = ['+', '-', '*', '/', '√'];
+    const operations = ['+', '-', '*','/','√'];
     const operation1 = operations[generateRandomNumber(operations.length - 1)];
     const operation2 = operations[generateRandomNumber(operations.length - 1)];
 
     let num1 = generateRandomNumber(maxRandomNumber);
     let num2 = generateRandomNumber(maxRandomNumber);
     let num3 = generateRandomNumber(maxRandomNumber);
+    //console.log(num1);
+    //console.log(num2);
+    //console.log(num3);
+    //console.log(operation1);
+    //console.log(operation2);
 
     let result;
     try {
@@ -40,6 +46,7 @@ function generateProblem() {
         result = eval(expression);
 
         if (!Number.isInteger(result) || result < 0 || result > 1000) throw new Error("Resultado inválido");
+        console.log(result);
     } catch {
         return generateProblem();
     }
@@ -87,7 +94,10 @@ function checkAnswer(selected, correct) {
     } else {
         score -= pointsPerMistake;
         mistakes++;
+        mistakesSpan.textContent = mistakes;  
+        //console.log(mistakes);      
         scoreDiv.textContent = `Pontos: ${score}`;
+        
         if (mistakes >= 3) {
             endGame();
         }
@@ -101,11 +111,12 @@ function startGame() {
     correctAnswers = 0;
     pointsPerCorrect = 5;
     pointsPerMistake = 3;
-    maxRandomNumber = 10;
+    maxRandomNumber = 5;
     gameActive = true;
 
     scoreDiv.textContent = `Pontos: ${score}`;
     timeDiv.textContent = `Tempo: ${timer}s`;
+    mistakesSpan.textContent = mistakes; // Reinicia o contador de erros exibido
 
     // Ocultar o quadrante de "Jogo Finalizado" ao iniciar uma nova partida
     gameOverDiv.classList.add('hidden');
